@@ -8050,7 +8050,9 @@ h1, h2, h3, h4, h5,
       background: #000000 !important;
       position: relative;
       top: 0;
-      padding: 10px 15px; } }
+      padding:0px 17px;
+      
+    } }
   .ftco-navbar-light.ftco-navbar-light-2 {
     position: relative;
     top: 0; }
