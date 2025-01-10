@@ -69,6 +69,8 @@
 	    margin:0,
 	    animateOut: 'fadeOut',
 	    animateIn: 'fadeIn',
+		touchDrag: false,
+		mouseDrag: false, 
 	    nav:false,
 	    autoplayHoverPause: false,
 	    items: 1,
