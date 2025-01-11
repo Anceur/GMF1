@@ -41,6 +41,7 @@
   box-sizing: border-box; }
 
 html {
+  overflow-x: hidden;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -9075,14 +9076,93 @@ h1, h2, h3, h4, h5,
     list-style: none;
     margin-right: 10px; }
 
-.ftco-partner {
-  padding: 5em 0; }
-  .ftco-partner .partner {
-    display: block;
-    padding: 0 20px; }
-    @media (max-width: 991.98px) {
-      .ftco-partner .partner {
-        padding: 0; } }
+
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    
+    :root {
+      --marquee-width: 100%;
+      --marquee-height: 8rem;
+      /* --marquee-elements: 12; */ /* defined with JavaScript */
+      --marquee-elements-displayed: 5;
+      --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+      --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+    }
+    
+    .ftcos-section{
+    padding:6rem 0 0 0;
+    margin: 0;
+    }
+
+    .marquee {
+      display: flex;
+      width: var(--marquee-width);
+      height: var(--marquee-height);
+      background-color: #fff;
+      color: #eee;
+      overflow: hidden;
+      position: relative;
+      align-items: center;
+    }
+    .marquee:before, .marquee:after {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      content: "";
+      z-index: 1;
+    }
+    
+    .marquee:before {
+      left: 0;
+      width: 5rem;  /* Adjust width as necessary */
+      background: linear-gradient(to right, #fff -15%, transparent 100%);
+    }
+    
+    .marquee:after {
+      right: 0;
+      width: 5rem;  /* Adjust width as necessary */
+      background: linear-gradient(to left, #fff -15%, transparent 100%);
+    }
+    
+    .marquee-content {
+      list-style: none;
+      height: 100%;
+      display: flex;
+      animation: scrolling var(--marquee-animation-duration) linear infinite;
+    }
+    /* .marquee-content:hover {
+      animation-play-state: paused;
+    } */
+    @keyframes scrolling {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+    }
+    .marquee-content li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* text-align: center; */
+      flex-shrink: 0;
+      width: var(--marquee-element-width);
+      max-height: 100%;
+      font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+      white-space: nowrap;
+    }
+    
+    .marquee-content li img {
+      width: 100%;
+    }
+    
+    @media (max-width: 600px) {
+      html { font-size: 12px; }
+      :root {
+        --marquee-width: 100vw;
+        --marquee-height: 16vh;
+        --marquee-elements-displayed: 3;
+      }
+      .marquee:before, .marquee:after { width: 5rem; }
+    }
+
+
 
 .subscribe-form {
   width: 100%; }
@@ -9243,6 +9323,291 @@ textarea.form-control {
       color: #000000; }
     .ftco-footer-social li a:hover {
       color: #000000; }
+
+/* line 4, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area {
+  background-size: cover;
+  background-position: bottom center;
+  padding: 150px 0;
+}
+
+/* line 11, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+/* line 15, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap::before {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  background: rgba(255, 255, 255, 0.2);
+  height: 73%;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+}
+
+/* line 2, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+.section_title h3 {
+  font-size: 80px;
+  font-weight: 400;
+  color: #fff;
+  position: relative;
+  z-index: 0;
+  padding-bottom: 7px;
+}
+
+@media (max-width: 767px) {
+  /* line 2, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title h3 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 2, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title h3 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 2, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title h3 {
+    font-size: 35px;
+    line-height: 42px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* line 22, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title h3 br {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 22, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title h3 br {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 22, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title h3 br {
+    display: none;
+  }
+}
+
+/* line 34, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+.section_title p {
+  font-size: 20px;
+  color: #AAB1B7;
+  line-height: 32px;
+  margin-bottom: 0;
+  font-weight: 400;
+  margin-bottom: 0px;
+  font-family: "Muli", sans-serif;
+}
+
+@media (max-width: 767px) {
+  /* line 42, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .section_title p br {
+    display: none;
+  }
+}
+
+/* line 50, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+.section_title h4 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #FF4533;
+  font-family: "Anton", sans-serif;
+  margin-bottom: 0;
+}
+
+/* line 57, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  /* line 57, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .mb-50 {
+    margin-bottom: 40px;
+  }
+}
+
+/* line 64, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+.mb-73 {
+  margin-bottom: 73px;
+}
+
+@media (max-width: 767px) {
+  /* line 64, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .mb-73 {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 64, ../../Arafath/CL/December/236. Event-02/HTML/scss/_section_title.scss */
+  .mb-73 {
+    margin-bottom: 40px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  /* line 15, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+  .program_details_area .program_detail_wrap::before {
+    left: 13px;
+    transform: translateX(0);
+    height: 75%;
+  }
+}
+
+/* line 31, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram {
+  display: block;
+  position: relative;
+  margin-bottom: 13px;
+  width: 100%;
+}
+
+/* line 36, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .inner_wrap {
+  width: 40%;
+}
+
+@media (max-width: 767px) {
+  /* line 36, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+  .program_details_area .program_detail_wrap .single_propram .inner_wrap {
+    width: 100%;
+    padding-left: 35px;
+    margin-top: 20px;
+  }
+}
+
+/* line 44, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .circle_img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1EC6B6;
+  width: 26px;
+  height: 26px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+  /* line 44, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+  .program_details_area .program_detail_wrap .single_propram .circle_img {
+    transform: translateX(0);
+    left: 0;
+  }
+}
+
+/* line 57, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram:nth-child(2n+1) {
+  float: right;
+  width: 100%;
+}
+
+/* line 60, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram:nth-child(2n+1) .inner_wrap {
+  float: right;
+  float: right;
+  text-align: left;
+}
+
+/* line 66, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram:nth-child(2n) {
+  width: 100%;
+  float: left;
+  margin-top: -110px;
+}
+
+@media (max-width: 767px) {
+  /* line 66, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+  .program_details_area .program_detail_wrap .single_propram:nth-child(2n) {
+    margin-top: 0;
+  }
+}
+
+/* line 73, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram:nth-child(2n) .inner_wrap {
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  /* line 73, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+  .program_details_area .program_detail_wrap .single_propram:nth-child(2n) .inner_wrap {
+    text-align: left;
+  }
+}
+
+/* line 79, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram:nth-child(2n)::before {
+  left: auto;
+  right: 48%;
+  margin-left: -13px !important;
+}
+
+@media (max-width: 767px) {
+  /* line 79, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+  .program_details_area .program_detail_wrap .single_propram:nth-child(2n)::before {
+    width: 100%;
+  }
+}
+
+/* line 88, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .porgram_top {
+  margin-bottom: 41px;
+}
+
+/* line 90, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .porgram_top span {
+  color: #FF4533;
+  font-size: 30px;
+  font-family: "Anton", sans-serif;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* line 97, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .porgram_top h4 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* line 103, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .thumb {
+  margin-bottom: 23px;
+}
+
+/* line 105, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram .thumb img {
+  width: 100%;
+}
+
+/* line 109, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
+.program_details_area .program_detail_wrap .single_propram h4 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
 
 #map {
   width: 100%; }
@@ -10013,3 +10378,176 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+    @import url('https://fonts.googleapis.com/css?family=Cardo|Pathway+Gothic+One');
+
+    /* Responsive */
+    @media only screen and (max-width: 767px) {
+      .timeline {
+        /* Add your responsive styles here */
+      }
+    }
+    
+    .timeline {
+      display: flex;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: column;
+      max-width: 700px;
+      position: relative;
+    }
+    
+    .timeline__content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .timeline__content-title {
+      font-weight: normal;
+      font-size: 66px;
+      margin: -10px 0 0 0;
+      transition: 0.4s;
+      padding: 0 10px;
+      box-sizing: border-box;
+      font-family: 'Pathway Gothic One', sans-serif;
+      color: #fff;
+    }
+    
+    .timeline__content-desc {
+      margin: 0;
+      font-size: 15px;
+      box-sizing: border-box;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: Cardo;
+      font-weight: normal;
+      line-height: 25px;
+    }
+    
+    .timeline:before {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      margin-left: -1px;
+      content: "";
+      background: rgba(255, 255, 255, 0.07);
+    }
+    
+    .timeline-item {
+      padding: 40px 0;
+      opacity: 0.3;
+      filter: blur(2px);
+      transition: 0.5s;
+      box-sizing: border-box;
+      width: calc(50% - 40px);
+      display: flex;
+      position: relative;
+      transform: translateY(-80px);
+    }
+    
+    .timeline-item:before {
+      content: attr(data-text);
+      letter-spacing: 3px;
+      width: 100%;
+      position: absolute;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      font-family: 'Pathway Gothic One', sans-serif;
+      border-left: 2px solid rgba(255, 255, 255, 0.5);
+      top: 70%;
+      margin-top: -5px;
+      padding-left: 15px;
+      opacity: 0;
+      right: calc(-100% - 56px);
+    }
+    
+    .timeline-item:nth-child(even) {
+      align-self: flex-end;
+    }
+    
+    .timeline-item:nth-child(even):before {
+      right: auto;
+      text-align: right;
+      left: calc(-100% - 56px);
+      padding-left: 0;
+      border-left: none;
+      border-right: 2px solid rgba(255, 255, 255, 0.5);
+      padding-right: 15px;
+    }
+    
+    .timeline-item--active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    
+    .timeline-item--active:before {
+      top: 50%;
+      transition: 0.3s all 0.2s;
+      opacity: 1;
+    }
+    
+    .timeline__content-title {
+      margin: -50px 0 20px 0;
+    }
+    
+    .timeline__img {
+      max-width: 100%;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    }
+    
+    .timeline-container {
+      width: 100%;
+      position: relative;
+      padding: 80px 0;
+      transition: 0.3s ease 0s;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    
+    .timeline-container:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(99, 99, 99, 0.8);
+      content: "";
+    }
+    
+    .timeline-header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+    
+    .timeline-header__title {
+      color: #fff;
+      font-size: 46px;
+      font-family: Cardo;
+      font-weight: normal;
+      margin: 0;
+    }
+    
+    .timeline-header__subtitle {
+      color: rgba(255, 255, 255, 0.5);
+      font-family: 'Pathway Gothic One', sans-serif;
+      font-size: 16px;
+      letter-spacing: 5px;
+      margin: 10px 0 0 0;
+      font-weight: normal;
+    }
+    
+    .demo-footer {
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .demo-footer a {
+      color: #999;
+      display: inline-block;
+      font-family: Cardo;
+    }
+    
